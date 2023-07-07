@@ -206,4 +206,16 @@ module.exports = {
       res.status(500).json({ success: false, error: error.message });
     }
   }, // Delete a Todo
+
+  getTodos: async (req, res) => {
+    try {
+      const { userId } = req;
+
+      const todos = await Todo.find({ user: userId });
+
+      res.status(200).json({ success: true, todos });
+    } catch (error) {
+      res.status(500).json({ success: false, error: error.message });
+    }
+  }, // Get all Todos for a User
 };
