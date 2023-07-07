@@ -11,6 +11,7 @@ const {
   getTodoById,
   updateTodo,
   deleteTodo,
+  getTodos,
 } = require("../controllers");
 
 // @Desc      : Register A New User
@@ -32,6 +33,11 @@ router.get("/auth/me", protect, getMe);
 // @Method    : [POST]
 // @Route     : /api/v1/todo
 router.post("/todo", protect, createTodo);
+
+// @Desc      : Get todos
+// @Method    : [GET]
+// @Route     : /api/v1/todo
+router.get("/todo", protect, getTodos);
 
 // @Desc      : Get todo by Id
 // @Method    : [GET]
